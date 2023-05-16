@@ -1,0 +1,110 @@
+{
+	"nodes" : 
+	[
+		{
+			"key": 0,
+			"title": "Draft",
+			"group":1,
+			"status":"Success",
+			"icon": "sap-icon://notes",
+			"visible": true
+		},
+		{
+			"key": 1,
+			"title": "In Validation",
+			"group":1,
+			"status":"CustomStandard",
+			"icon": "sap-icon://order-status",
+			"visible": true
+		},
+		{
+			"key": 2,
+			"title": "Approved",
+			"group":1,
+			"status":"CustomStandard",
+			"icon": "sap-icon://approvals",
+			"visible": true
+		},
+		{
+			"key": 3,
+			"title": "Completed",
+			"group":1,
+			"status":"CustomStandard",
+			"icon": "sap-icon://eam-work-order",
+			"visible": true		
+		},
+		{
+			"key": 4,
+			"title": "Hidden",
+			"group": 1,
+			"status":"CustomStandard",
+			"icon": "sap-icon://hide",
+			"visible": true		
+		},
+		{
+			"key": 5,
+			"title": "Rejected",
+			"group":2,
+			"status":"CustomStandard",
+			"icon": "sap-icon://unpaid-leave",
+			"visible": true			
+		},
+		{
+			"key": 6,
+			"title": "Candidate",
+			"group":2,
+			"status":"CustomStandard",
+			"icon": "sap-icon://lateness",
+			"visible": true			
+		}	
+	],
+	"lines" : 
+	[
+		{
+			"from":5, 
+			"to": 1,
+			"arrowPosition":"Middle"		
+		},
+		{
+			"from": 0, 
+			"to": 1,
+			"arrowPosition":"Middle"
+		},
+		{
+			"from": 1,
+			"to": 5,
+			"arrowPosition":"Middle"
+		},		
+		{
+			"from": 2,
+			"to": 3,
+			"arrowPosition":"Middle"
+		}, 
+		{
+			"from": 3,
+			"to": 4,
+			"arrowPosition":"Middle"
+		},
+		{
+			"from": 1,
+			"to": 6 ,
+			"arrowPosition":"End"
+		}, 
+		{
+			"from": 6, 
+			"to": 2,
+			"arrowPosition":"Middle"
+		}
+	],
+	"groups" : 
+	[
+		{
+			"key": 1,
+			"title": ""
+		},
+		{
+			"key": 2, 
+			"title": ""
+		}		
+	]
+}

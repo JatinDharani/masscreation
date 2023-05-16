@@ -1,0 +1,373 @@
+<mvc:View controllerName="com.amadeus.fiori.ppm.ipf.deiverables.masscreation.controller.Main"
+   	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:c="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:t="sap.ui.table"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:u="sap.ui.unified">
+    <Page 	id="page"
+		title="{i18n>MainTitle}"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+       
+        <content>
+			<Panel>
+				<l:VerticalLayout>
+               	<u:FileUploader
+						id="FileUploaderId"
+						sameFilenameAllowed="true"
+						iconOnly="false"
+						buttonOnly="false"
+						fileType="XLSX,xlsx"
+						icon="sap-icon://upload"
+						iconFirst="true"
+						style="Emphasized"
+						change="onUpload"
+					/>
+				</l:VerticalLayout>
+			</Panel>
+            	<!-- Table -->
+			<t:Table
+				id="MainTable"
+				rows="{ListServiceOrder>/}"
+				width="100%"
+				threshold="3000"
+				visibleRowCountMode="Auto"
+			>
+				<t:columns>
+					<!-- ServiceOrder longText -->
+					<t:Column sortProperty="HcsOrdExtDesc">
+						<Label
+							tooltip="{i18n>HcsOrdExtDesc}"
+							text="{i18n>HcsOrdExtDesc}"
+						/>
+						<t:template>
+							<!-- 							<Input id="HcsOrdExtDesc"  enabled="{= ${ListServiceOrder>OrderId} === '' }" value="{ListServiceOrder>HcsOrdExtDesc}"  submit="onCheckInputField"/> -->
+							<Input
+								id="HcsOrdExtDesc"
+								enabled="{ListServiceOrder>EditableLine}"
+								value="{ListServiceOrder>HcsOrdExtDesc}"
+								submit="onCheckInputField"
+							/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!--Parent Id	-->
+					<t:Column sortProperty="ParentId">
+						<Label text="{i18n>Phase}"/>
+						<t:template>
+							<HBox>
+								<!-- 								<Input id="Parentid" enabled="{= ${ListServiceOrder>OrderId} === '' }" value="{ListServiceOrder>ParentId}" showValueHelp="true"  -->
+								<!-- 								    valueHelpRequest="onVhPhase" -->
+								<!-- 								    search="_onVhSearchTeamSingle" -->
+								<!-- 								    showSuggestion="true" -->
+								<!-- 								    suggest="onPhaseSuggest" -->
+								<!-- 									suggestionItems="{ path: '/ValueHelpSet'}">								 -->
+								<!-- 									<c:Item key="{Code}" text="{Description}"/>								 -->
+								<!-- 								</Input> -->
+								<Input
+									id="Parentid"
+									enabled="{ListServiceOrder>EditableLine}"
+									value="{ListServiceOrder>ParentId}"
+									showValueHelp="true"
+									valueHelpRequest="onVhPhase"
+									search="_onVhSearchTeamSingle"
+									showSuggestion="true"
+									suggest="onPhaseSuggest"
+									suggestionItems="{
+										path: '/ValueHelpSet'
+									}"
+								>
+									<c:Item
+										key="{Code}"
+										text="{Description}"
+									/>
+								</Input>
+								<Button
+									icon="sap-icon://org-chart"
+									press="portfolioDialogOpen"
+									visible="{ListServiceOrder>DisplayWarning}"
+									class="sapUiSmallMarginEnd"
+									enabled="{ListServiceOrder>DisplayWarning}"
+								/>
+							</HBox>
+						</t:template>
+					</t:Column>
+					<!-- Ticket System type -->
+					<t:Column sortProperty="HcsOrdExtsyst">
+						<Label text="{i18n>HcsOrdExtsyst}"/>
+						<t:template>
+							<!-- 							<Input id="HcsOrdExtsyst" enabled="{= ${ListServiceOrder>OrderId} === '' }" value="{ListServiceOrder>HcsOrdExtsyst}" showValueHelp="true"  -->
+							<!-- 	                			valueHelpRequest="onVhTicketSyst"  -->
+							<!-- 	                			search="_onVhSearchTicketSyst" -->
+							<!-- 	                			showSuggestion="true" -->
+							<!-- 	                			suggest="onTicketSystSuggest" -->
+							<!-- 							    suggestionItems="{ path: '/ValueHelpSet'}"> -->
+							<!-- 								<c:Item key="{Code}" text="{Description}"/> -->
+							<!-- 							</Input>	 -->
+							<Input
+								id="HcsOrdExtsyst"
+								enabled="{ListServiceOrder>EditableLine}"
+								value="{ListServiceOrder>HcsOrdExtsyst}"
+								showValueHelp="true"
+								valueHelpRequest="onVhTicketSyst"
+								search="_onVhSearchTicketSyst"
+								showSuggestion="true"
+								suggest="onTicketSystSuggest"
+								suggestionItems="{
+									path: '/ValueHelpSet'
+								}"
+							>
+								<c:Item
+									key="{Code}"
+									text="{Description}"
+								/>
+							</Input>
+						</t:template>
+					</t:Column>
+					<!-- Ticket id -->
+					<t:Column sortProperty="HcsOrdExtId">
+						<Label
+							tooltip="{i18n>HcsOrdExtId}"
+							text="{i18n>HcsOrdExtId}"
+						/>
+						<t:template>
+							<!-- 							<Input id="HcsOrdExtId" enabled="{= ${ListServiceOrder>OrderId} === '' }" value="{ListServiceOrder>HcsOrdExtId}" submit="onCheckInputField"/> -->
+							<Input
+								id="HcsOrdExtId"
+								enabled="{ListServiceOrder>EditableLine}"
+								value="{ListServiceOrder>HcsOrdExtId}"
+								submit="onCheckInputField"
+							/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!-- Order Number -->
+					<t:Column sortProperty="OrderId">
+						<Label
+							tooltip="{i18n>OrderId}"
+							text="{i18n>OrderId}"
+						/>
+						<t:template>
+							<Text text="{ListServiceOrder>OrderId}"/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!-- Grouping -->
+					<t:Column sortProperty="SortField">
+						<Label
+							tooltip="{i18n>SortField}"
+							text="{i18n>SortField}"
+						/>
+						<t:template>
+							<!-- 							<Input enabled="{= ${ListServiceOrder>OrderId} === '' }" value="{ListServiceOrder>SortField}" /> -->
+							<Input
+								enabled="{ListServiceOrder>EditableLine}"
+								value="{ListServiceOrder>SortField}"
+							/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!-- Deliverable -->
+					<t:Column sortProperty="Deliverable">
+						<Label
+							tooltip="{i18n>Deliverable}"
+							text="{i18n>Deliverable}"
+						/>
+						<t:template>
+							<Input
+								enabled="{ListServiceOrder>EditableLine}"
+								value="{ListServiceOrder>Deliverable}"
+								id="Deliverable"
+								showValueHelp="true"
+								valueHelpRequest="onVhDeliverable"
+								change="onDeliverableChange"
+								showSuggestion="true"
+								suggest="onDeliverableSuggest"
+								suggestionItems="{deliverableModel>/Deliverables}"
+								valueStateText="Unknown Parent"
+							>
+								<suggestionItems>
+									<c:ListItem
+										key="{deliverableModel>OrderId}"
+										text="{deliverableModel>OrderTxt} ({deliverableModel>OrderId}) {deliverableModel>ExternalSystemTxt} {deliverableModel>ExternalSystemTicketId}"
+										additionalText=""
+									/>
+								</suggestionItems>
+							</Input>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!-- Warning message list -->
+					<t:Column width="4em">
+						<Label/>
+						<t:template>
+							<Button
+								icon="sap-icon://message-warning"
+								text="{ListServiceOrder>WarningCount}"
+								press="onWarningButtonPressed"
+								class="sapUiSmallMarginEnd"
+								visible="{ListServiceOrder>DisplayWarning}"
+							/>
+						</t:template>
+					</t:Column>
+					<t:Column width="6em">
+						<Label/>
+						<t:template>
+							<!-- 						visible="{ListServiceOrder>DisplayWarning}"  enabled="{ListServiceOrder>DisplayWarning}" -->
+							<Button
+								icon="sap-icon://delete"
+								press="onRemoveLineButtonPressed"
+								class="sapUiSmallMarginEnd"
+							/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+			<!-- This table is used to generate an Excel template-->
+			<t:Table
+				id="TemplateTable"
+				visible="false"
+			>
+				<t:columns>
+					<!-- ServiceOrder  -->
+					<t:Column sortProperty="HcsOrdExtDesc">
+						<Label text="{i18n>ExcelSoDescription}"/>
+						<t:template>
+							<Input/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!--Parent Id	-->
+					<t:Column sortProperty="ParentId">
+						<Label text="{i18n>ExcelParentId}"/>
+						<t:template>
+							<Input/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!-- Ticket System type -->
+					<t:Column sortProperty="HcsOrdExtsyst">
+						<Label text="{i18n>ExcelTicketSystem}"/>
+						<t:template>
+							<Input/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!-- Ticket id -->
+					<t:Column sortProperty="HcsOrdExtId">
+						<Label text="{i18n>ExcelTicketID}"/>
+						<t:template>
+							<Input/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!-- Grouping -->
+					<t:Column sortProperty="SortField">
+						<Label text="{i18n>ExcelGrouping}"/>
+						<t:template>
+							<Input/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+					<!-- Deliverable -->
+					<t:Column sortProperty="Deliverable">
+						<Label text="{i18n>ExcelDeliverable}"/>
+						<t:template>
+							<Input/>
+						</t:template>
+						<t:customData>
+							<c:CustomData
+								key="tableType"
+								value="All"
+							/>
+						</t:customData>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+        </content>
+        	<!-- Foot bar -->
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button
+						text="{i18n>ControlCheck}"
+						id="ControlCheck"
+						press="onControlCheckPressed"
+					/>
+					<Button
+						text="{i18n>ExcelTemplate}"
+						id="ExcelTemplate"
+						press="onExcelTemplatePressed"
+					/>
+					<Button
+						text="{i18n>ExcelDownload}"
+						id="ExcelDownload"
+						press="onExcelDownloadPressed"
+					/>
+					<Button
+						text="{i18n>AddNewLine}"
+						id="AddNewLine"
+						press="onAddNewLinePressed"
+					/>
+					<Button
+						text="{i18n>SendPosting}"
+						type="Accept"
+						press="onSendPosting"
+					/>
+				</contentRight>
+			</Bar>
+		</footer>
+    </Page>
+</mvc:View>

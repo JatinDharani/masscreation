@@ -1,0 +1,268 @@
+/*  ==|== Vertical Layout ========================================================== */
+
+.sapMRPVlt .sapUiVltCell {line-height: 1.5rem}
+
+/*  ==|== Horizontal Layout ========================================================== */
+.sapMRPHlt  .sapUiHLayoutChildWrapper {padding-left: 0.5rem;}
+
+.sapMSLITitleOnly {
+    font-size: 0.875rem; 
+}
+
+.sapUiTf {
+    font-size: 0.875rem; 
+}
+
+.sapMSlt .sapMSltLabel{
+  height: 40px !important;
+  font-family: Arial,Helvetica,sans-sherif
+}
+
+.sapMTB-Transparent-CTX .sapMLabel.crumbArrow {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.sapMTB-Transparent-CTX .sapMText.crumbLast {
+  font-size: 0.875rem;
+  text-shadow: none;
+}
+.customHeight .sapUiTableCell{
+  height: 32px;
+}
+.customHeight .sapMBtnIcon {
+  line-height: 0.5rem;
+}
+
+.standardHeight .sapUiTableCell{
+  height: 38px;
+}
+.standardHeight .sapMBtnIcon {
+  line-height: 2.375rem;
+}
+/*
+.sapUiTableCell {
+  height: 32px;
+} */
+
+.sapUiRespGrid.sapUiRespGridVSpace1 > div {
+    margin-bottom: 0rem;
+}
+
+
+a[data-objecttype="Item"] {
+  color:#00a9e0 !important;
+}
+
+a[data-ipsrIndicator="Y"] {
+  color:#00a9e0 !important;
+}
+
+#sf {
+  display: none;
+}
+
+.amadeusBlue {
+  color: #005EB8 !important;
+}
+
+button{
+  height: 5px;
+}
+
+button[data-whatifflag="Y"] {
+  color:#309712 !important;
+}
+
+button[data-whatifflag="N"] {
+  color:#CE0058 !important;
+}
+
+.sapUiTf input {
+  font-size: 0.875rem;
+}
+
+.amadeusAutoComplete {
+  margin-top: 0.1875rem !important;
+  margin-bottom: 0.1875rem !important;
+  border-color: rgb(191, 191, 191) !important;
+}
+
+.amadeusAutoComplete .sapUiTf {
+  font-size: 0.875rem !important;
+}
+
+.amadeusPageHeader {
+  margin-top: 0px !important;
+  padding-top: 0.312rem !important;
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.amadeusPageHeader .sapMOHBottomRow {
+  margin-top: 0.5rem !important;
+}
+
+.amadeusPageHeader .sapMOHAttrRow {
+  margin-top: 0px !important;
+}
+
+.amadeusTabBar .sapMITBFilterIcon {
+  height: 2rem !important;
+  width: 2rem !important;
+  padding-top: 0.33rem !important;
+}
+
+.amadeusTabBar .sapMITBTab {
+  height: 2rem !important;
+  width: 5rem !important;
+}
+
+.amadeusTabBar .sapMITBVertical {
+  height: 3.5rem !important;
+  width: 5rem !important;
+}
+
+.amadeusTabBar .sapMITBText {
+  width: 5rem !important;
+}
+
+.amadeusNormalFont .sapMSltLabel {
+  color: #000000 !important;
+  font-style: normal !important;
+}
+
+.amadeusPlaceholderFont .sapMSltLabel {
+  color: #bababa !important;
+  font-style: italic !important;
+}
+
+.gridTableCell {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.sapUiTableInteractiveResizerGhost {
+  height: 0px !important;
+}
+
+.sapUiTableCnt {
+  border-bottom: 1px solid #c7c9c7 !important;
+  overflow-y: auto !important;
+  margin-bottom: 10px !important;
+}
+
+.sapUiTableHeightResizer:hover {
+  background-color: #1169bd !important;
+}
+.sapSuiteUiCommonsNetworkGroups {
+  stroke-width: 0;
+}
+.sapSuiteUiCommonsNetworkGroupHeaderActionIcon {
+  display: none;
+}
+
+.sapUiTableSelectAllCheckBox::after 
+{
+  top: 0 !important;
+  bottom: 0 !important;
+}
+
+.amadeusPurchasingCompaniesList {
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
+}
+
+.amadeusPurchasingCompanyArrow {
+	font-size: 2rem;
+	padding-top: 0.5rem;
+	color: #40A2FF;
+}
+
+.amadeusDroppableZone {
+	border: 2px dashed #409dd0;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.amadeusArrowRightTutorial {
+	border: solid #409dd0;
+	border-width: 0 7px 7px 0;
+	display: inline-block;
+	padding: 10px;
+	position: absolute;
+	margin-top: 300px;
+	margin-left: 377px;
+	z-index: 1;
+	visibility: hidden;
+	-webkit-transform: rotate(315deg);
+	transform: rotate(315deg);
+	-webkit-animation: fadeinout 2s infinite;
+	-ms-animation: fadeinout 2s infinite;
+	animation: fadeinout 2s infinite;
+	-webkit-animation-direction: reverse;
+	-ms-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.amadeusArrowLeftTutorial {
+	border: solid #409dd0;
+	border-width: 0 7px 7px 0;
+	display: inline-block;
+	padding: 10px;
+	position: absolute;
+	margin-top: 300px;
+	margin-left: 377px;
+	z-index: 1;
+	visibility: hidden;
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+	-webkit-animation: fadeinout 2s infinite;
+	-ms-animation: fadeinout 2s infinite;
+	animation: fadeinout 2s infinite;
+	-webkit-animation-direction: reverse;
+	-ms-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.amadeusBoardingPassName {
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 2px;
+	border-radius: 4px;
+}
+
+span[data-color='green'].amadeusBoardingPassName {
+	background-color: #008540;
+	color: white;
+}
+
+span[data-color='yellow'].amadeusBoardingPassName {
+	background-color: #FEEB3D;
+	color: white;
+}
+
+span[data-color='orange'].amadeusBoardingPassName {
+	background-color: #F7A827;
+	color: white;
+}
+
+span[data-color='red'].amadeusBoardingPassName {
+	background-color: #e95326;
+	color: white;
+}
+
+.amadeusMaturityAssessmentGraph .v-gridline-incisedline {
+	stroke: #b2b7bd !important;
+}
+span[data-isLastLevel="X"] {
+	color: blue !important;
+	fonr-weight : bold;
+	cursor: pointer;
+}
+div[data-isLastLevel="X"] {
+	color: #005eb8;
+	fonr-weight : bold;
+	cursor: pointer;
+}

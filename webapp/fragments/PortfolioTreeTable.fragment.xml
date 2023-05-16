@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+	<Dialog id="portfolioTreeTable"
+		title="Portfolio" class="sapUiPopupWithPadding"
+		contentWidth="80%" resizable="true">
+		<content> 
+			<t:TreeTable id="pfTree" expandFirstLevel="true"
+				selectionMode="Single" selectionBehavior="RowOnly" inset="false"
+				showNoData="false" visibleRowCount="11" toggleOpenState="nodeExpand"
+				rowSelectionChange="nodeSelected">
+				<t:columns>
+					<t:Column id="OrderDescription">
+						<Label tooltip="Name" text="Name" design="Bold" />
+						<t:template>
+							<Text text="{text}">
+								<customData>
+									<core:CustomData key="isLastLevel" value="{isLastLevel}" writeToDom="true" />
+								</customData>
+							</Text>
+						</t:template>
+					</t:Column>
+					<t:Column label="OrderID" hAlign="Left" visible="true" width="20%">
+						<Label tooltip="Id" text="Id" design="Bold" />
+						<t:template>
+							<Text text="{id}" visible="{=${Id} !== ' '}">
+								<customData>
+									<core:CustomData key="isLastLevel" value="{isLastLevel}" writeToDom="true" />
+								</customData>
+							</Text>
+						</t:template>
+					</t:Column>					
+				</t:columns>
+			</t:TreeTable> 
+
+		</content>
+		<buttons>
+			<Button text="Cancel" press="dialogClose" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

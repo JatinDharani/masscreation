@@ -1,0 +1,10 @@
+<!-- 
+	Author: Nicholas
+	This fragment is used as a popup to select multiple employee in the filter bar
+ -->
+ <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>HcsOrdExtsyst}" class="sapUiPopupWithPadding" items="{ path: '/ValueHelpSet'}"
+				  search="_onVhSearchTicketSyst" confirm="_onVhCloseTicketSyst" cancel="_onVhCloseTicketSyst">
+		<StandardListItem title="{Description}" description="{Code}" />
+	</SelectDialog>
+</core:FragmentDefinition> 

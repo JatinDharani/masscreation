@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<SelectDialog
+		title="{i18n>Deliverable} for item {/selectedItemId}"
+		class="sapUiPopupWithPadding"
+		items="{
+			path: 'deliverableModel>/Deliverables'
+		}"
+		search="_onVhSearchDeliverable"
+		confirm="_onVhCloseDeliverable"
+		cancel="_onVhCloseDeliverable"
+		liveChange="_onVhSearchDeliverable"
+	>
+		<StandardListItem
+			title="{deliverableModel>OrderId}"
+			description="{deliverableModel>OrderTxt}"
+		/>
+	</SelectDialog>
+</core:FragmentDefinition>

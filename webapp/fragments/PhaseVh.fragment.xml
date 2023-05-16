@@ -1,0 +1,10 @@
+<!-- 
+	Author: Nicholas
+	This fragment is used as a popup to select multiple employee in the filter bar
+ -->
+ <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>Phase}" class="sapUiPopupWithPadding" items="{ path: '/ValueHelpSet'}" 
+				  search="_onVhSearchPhase" confirm="_onVhClosePhase" cancel="_onVhClosePhase">
+		<StandardListItem title="{Description}"  description="{Code}" additionalText="{Description}" />
+	</SelectDialog>  
+</core:FragmentDefinition> 
